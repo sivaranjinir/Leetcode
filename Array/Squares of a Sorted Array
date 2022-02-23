@@ -1,0 +1,28 @@
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+#         square_list = [ ]
+       
+#          for each_num in nums:
+#              number=each_num ** 2
+#              square_list.append(number)
+        
+#          square_list.sort()
+#          return square_list
+        lt_pntr=0
+        rt_pntr=len(nums)-1
+        
+        
+        while(lt_pntr<=rt_pntr):
+            lt_value=nums[lt_pntr] ** 2
+            rt_value=nums[rt_pntr] ** 2
+            
+            if(lt_value>rt_value):
+                nums.insert(rt_pntr+1,lt_value)
+                nums.pop(lt_pntr)
+                
+            else:
+                nums[rt_pntr]=rt_value
+            
+            rt_pntr=rt_pntr-1
+            
+        return nums
