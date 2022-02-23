@@ -1,0 +1,19 @@
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+#         even_digit=0
+#         for each_num in nums:
+#             each_num=str(each_num)
+#             num_length=len(each_num)
+#             if(num_length%2==0):
+#                 even_digit+=1
+#         return even_digit
+        
+        no_of_evendigit=0
+        for each_num in nums:
+            no_of_digit=0
+            while (each_num >= 1):
+                each_num/=10
+                no_of_digit+=1
+            if(no_of_digit%2==0):
+                no_of_evendigit+=1
+        return no_of_evendigit      
