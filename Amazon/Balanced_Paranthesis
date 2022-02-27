@@ -1,0 +1,34 @@
+
+def areBracketsBalanced(expr):
+    stack = []
+    for char in expr:
+        if char == "(" or char == "[" or char == "{" or char == "<":
+            stack.append(char)
+        elif char == ")" or char == "]" or char == "}" or char == ">":
+            if not stack:
+                return False
+            current_char = stack.pop()
+            if current_char == '(' and char != ")":
+                return False
+            elif current_char == '{' and char != "}":
+                return False
+            elif current_char == '[' and char != "]":
+                return False
+            elif current_char == '<' and char != ">":
+                return False
+ 
+    if not stack:
+        return True
+    else:
+        return False
+
+
+
+if __name__ == "__main__":
+	expr = "{h(e)}![o]<"
+
+	# Function call
+	if areBracketsBalanced(expr):
+		print("Balanced")
+	else:
+		print("Not Balanced")
