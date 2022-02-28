@@ -1,0 +1,36 @@
+import collections
+s="abbcafggkf"
+num=5
+ss=[]
+length=len(s)
+limit=length-num+1
+for i in range(limit):
+    start=i
+    end=i+num
+    if(end==length):
+        ss.append(s[start:])
+        break
+    else:
+        ss.append(s[start:end])
+# print(ss)
+res=[]
+for substring in ss:
+    count= collections.Counter(substring)
+    # print(count.values())
+    value=0
+    count_length=len(count)
+    for i in count.values():
+        # print(i)
+        if(i==1 or i==2 ):
+            value=value+i
+            if(value==num and count_length==num-1):
+                res.append(substring)
+                
+print(res)  
+        
+
+        
+   
+        
+
+
