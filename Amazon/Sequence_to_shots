@@ -1,0 +1,40 @@
+inputList=['a','b','a','b','c','b','a','c','a','d','e','f','e','g','d','e','h','i','j','h','k','l','i','j']
+final_res=[]
+inpuList_len=len(inputList)
+
+rem_len=0
+def calculation(in_list):
+    ss=[]
+    limit=0
+    i=0
+    length=0
+    res=[]
+    while i<=limit:
+        char=in_list[i]
+        res.append(char)
+        if char not in ss:
+            ss.append(char)
+            last_occurance = len(in_list) - 1 - in_list[::-1].index(char)
+            if last_occurance > limit:
+                limit=last_occurance
+        i+=1
+    length=length+len(res)
+    final_res.append(length)
+    return length
+    
+   
+ss_length=calculation(inputList)
+rem_len=rem_len+ss_length
+while rem_len != inpuList_len:
+    # sl=slice(rem_len,None,None)
+    ss_length=calculation(inputList[rem_len:])
+    rem_len=rem_len+ss_length
+    
+    
+            
+print(final_res)
+
+           
+
+
+
