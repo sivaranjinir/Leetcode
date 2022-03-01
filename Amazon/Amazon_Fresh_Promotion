@@ -1,0 +1,51 @@
+
+codeList=[['apple','apple'],['banana','anything','banana']]
+shoppingcart=['orange','apple','apple','banana','orange','banana']
+
+# codeList = [[ "apple", "apple" ],[ "banana", "anything", "banana" ]]
+# shoppingcart = ["banana", "orange", "banana", "apple", "apple"]
+        
+# codeList  = [[ "apple", "apple" ],["banana", "anything", "banana" ]]
+# shoppingcart = ["apple", "banana", "apple", "banana", "orange", "banana"]      
+
+# codeList = [[ "apple", "apple" ],["apple", "apple", "banana"]]
+# shoppingcart = ["apple", "apple", "apple", "banana"]
+        
+        
+i,j,k=0,0,0
+match,value,total_col = False,0,0
+
+if len(codeList) == 0 :
+    match=True
+    
+if  len(shoppingcart) == 0 or shoppingcart == None:
+    match=False
+    
+while i<len(codeList):
+    j=0
+    while j<len(codeList[i]) and k<len(shoppingcart):
+        
+        if codeList[i][j] == shoppingcart[k] or codeList[i][j] == "anything":
+            print(codeList[i][j],shoppingcart[k])
+            j+=1
+            k+=1
+            value+=1
+        else:
+            value=0
+            if(j!=0):
+                j=0   
+            else:
+                k+=1
+    total_col+=j
+    i+=1
+    
+
+if total_col==value:
+    match=True
+
+print(match)  
+    
+           
+
+        
+        
